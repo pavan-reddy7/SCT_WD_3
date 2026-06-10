@@ -128,22 +128,6 @@ The application is optimized for:
 
 ---
 
-## 📸 Screenshots
-
-### Home Screen
-![Home Screen](screenshots/home.png)
-
-### Gameplay
-![Gameplay](screenshots/gameplay.png)
-
-### Winner Detection
-![Winner Detection](screenshots/winner.png)
-
-### AI Mode
-![AI Mode](screenshots/AImode.png)
-
----
-
 ## 🔮 Future Improvements
 
 - Sound Effects
