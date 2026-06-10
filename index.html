@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A futuristic Tic-Tac-Toe game with AI opponents, sound effects, and stunning animations." />
+  <title>Tic-Tac-Toe | Futuristic Edition</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Font: Orbitron for futuristic feel -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===== Background glow elements ===== -->
+  <div class="bg-glow bg-glow--1"></div>
+  <div class="bg-glow bg-glow--2"></div>
+  <div class="bg-glow bg-glow--3"></div>
+
+  <!-- ===== Confetti canvas (injected by JS) ===== -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- ===== Main Container ===== -->
+  <div class="container">
+
+    <!-- Left: Game Area -->
+    <main class="game-area">
+      <h1 class="title">TIC-TAC-TOE</h1>
+
+      <!-- Mode Toggle -->
+      <div class="toggle-group" id="mode-toggle">
+        <button class="toggle-btn active" data-value="pvp" id="btn-mode-pvp">
+          <span class="toggle-icon">👥</span> 2 Players
+        </button>
+        <button class="toggle-btn" data-value="pvc" id="btn-mode-pvc">
+          <span class="toggle-icon">🤖</span> vs Computer
+        </button>
+      </div>
+
+      <!-- Difficulty Toggle (hidden by default) -->
+      <div class="difficulty-section" id="difficulty-group" style="display:none;">
+        <span class="difficulty-label">Difficulty</span>
+        <div class="toggle-group toggle-group--difficulty" id="difficulty-toggle">
+          <button class="toggle-btn active" data-value="easy" id="btn-diff-easy">Easy</button>
+          <button class="toggle-btn" data-value="medium" id="btn-diff-medium">Medium</button>
+          <button class="toggle-btn" data-value="hard" id="btn-diff-hard">Hard</button>
+        </div>
+      </div>
+
+      <!-- Turn Indicator + Restart -->
+      <div class="turn-row">
+        <div class="turn-indicator" id="turn-indicator">
+          <span class="turn-symbol" id="turn-symbol">X</span>
+          <span class="turn-text">'s Turn</span>
+        </div>
+        <button class="btn-restart-icon" id="btn-restart" title="Restart Game">↻</button>
+      </div>
+
+      <!-- Game Board -->
+      <div class="board" id="board">
+        <div class="cell" data-index="0"></div>
+        <div class="cell" data-index="1"></div>
+        <div class="cell" data-index="2"></div>
+        <div class="cell" data-index="3"></div>
+        <div class="cell" data-index="4"></div>
+        <div class="cell" data-index="5"></div>
+        <div class="cell" data-index="6"></div>
+        <div class="cell" data-index="7"></div>
+        <div class="cell" data-index="8"></div>
+      </div>
+
+      <!-- Sound Toggle -->
+      <button class="sound-toggle" id="sound-toggle" title="Toggle Sound">
+        🔊
+      </button>
+    </main>
+
+    <!-- Right: Scoreboard -->
+    <aside class="scoreboard">
+      <h2 class="scoreboard__title">SCOREBOARD</h2>
+      <div class="scoreboard__cards">
+        <div class="score-card score-card--x">
+          <span class="score-card__label">X WINS</span>
+          <span class="score-card__value" id="score-x">0</span>
+        </div>
+        <div class="score-card score-card--draw">
+          <span class="score-card__label">DRAWS</span>
+          <span class="score-card__value" id="score-draw">0</span>
+        </div>
+        <div class="score-card score-card--o">
+          <span class="score-card__label">O WINS</span>
+          <span class="score-card__value" id="score-o">0</span>
+        </div>
+      </div>
+      <div class="scoreboard__stats">
+        <div class="stat-row">
+          <span>Total Games</span>
+          <span id="total-games">0</span>
+        </div>
+        <div class="stat-row">
+          <span>Current Streak</span>
+          <span id="current-streak">0</span>
+        </div>
+      </div>
+      <button class="btn btn--reset" id="btn-reset-score">
+        <span class="btn-icon">✕</span> Reset Scoreboard
+      </button>
+    </aside>
+  </div>
+
+  <!-- ===== Popup Overlay ===== -->
+  <div class="popup-overlay" id="popup-overlay">
+    <div class="popup" id="popup">
+      <div class="popup__icon" id="popup-icon"></div>
+      <h2 class="popup__title" id="popup-title">VICTORY!</h2>
+      <p class="popup__message" id="popup-message">Player X wins the game!</p>
+      <button class="btn btn--play-again" id="btn-play-again">
+        <span class="btn-icon">▶</span> Play Again
+      </button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
