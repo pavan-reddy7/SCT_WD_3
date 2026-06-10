@@ -717,18 +717,35 @@ body {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 768px) {
+  html {
+    overflow-y: auto;
+  }
+
+  body {
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
   .container {
     flex-direction: column;
     align-items: center;
-    gap: 24px;
-    padding: 20px 16px;
+    gap: 20px;
+    padding: 16px;
+  }
+
+  .game-area {
+    order: 1;
+    width: 100%;
   }
 
   .scoreboard {
+    order: 2;
     width: 100%;
     max-width: 400px;
     position: static;
-    order: -1;
   }
 
   .scoreboard__cards {
